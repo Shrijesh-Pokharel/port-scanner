@@ -3,7 +3,7 @@ import socket
 def scan_port(ip, port):
     try:
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        sock.settimeout(0.05)
+        sock.settimeout(0.03)
         result = sock.connect_ex((ip, port))
         if result == 0:
             print(f"Port {port} is open")
@@ -18,8 +18,8 @@ def scan_port(ip, port):
 
 ip = input("Enter the target IP address: ")
 
-start_port = 0
-end_port = 1000
+start_port = int(input("enter the starting port:"))
+end_port = int(input("enter the ending port:"))
 
 open_ports = []
 
